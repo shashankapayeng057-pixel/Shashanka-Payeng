@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shashanka Payeng — Transformational Life Coach</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink-dusk:#211d2e;
+    --ink-dusk-2:#2c2740;
+    --paper-dawn:#f6efe4;
+    --paper-mid:#efe2cf;
+    --amber:#c98a3a;
+    --amber-soft:#e0ab5f;
+    --sage:#6f7d5e;
+    --clay:#a65c4a;
+    --text-on-dark:#f3ede0;
+    --text-on-light:#241f1a;
+    --text-muted-dark:#b9b0c9;
+    --text-muted-light:#5c5548;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--paper-dawn);
+    color:var(--text-on-light);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    letter-spacing:-0.01em;
+  }
+  em{font-style:italic;font-weight:400;color:inherit;}
+  a{color:inherit;text-decoration:none;}
+  .container{max-width:1080px; margin:0 auto; padding:0 32px;}
+
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none !important; transition:none !important; scroll-behavior:auto !important;}
+  }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    padding:22px 32px;
+    display:flex; justify-content:space-between; align-items:center;
+    mix-blend-mode:difference;
+  }
+  nav .wordmark{font-family:'Fraunces',serif; font-style:italic; font-size:1.15rem; color:#f3ede0;}
+  nav ul{list-style:none; display:flex; gap:32px; font-size:0.85rem;}
+  nav a{color:#f3ede0; opacity:0.85; transition:opacity 0.2s;}
+  nav a:hover, nav a:focus-visible{opacity:1;}
+  @media (max-width:700px){ nav ul{gap:16px; font-size:0.72rem;} }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative; min-height:100svh;
+    display:flex; flex-direction:column; justify-content:center;
+    background:linear-gradient(180deg, var(--ink-dusk) 0%, var(--ink-dusk-2) 60%, var(--paper-mid) 100%);
+    color:var(--text-on-dark);
+    overflow:hidden; padding-top:80px;
+  }
+  .horizon-glow{
+    position:absolute; left:50%; bottom:-10%; width:140vw; height:60vh;
+    transform:translateX(-50%);
+    background:radial-gradient(ellipse at center, rgba(201,138,58,0.45) 0%, rgba(201,138,58,0.12) 40%, transparent 70%);
+    pointer-events:none;
+    animation:glowPulse 8s ease-in-out infinite;
+  }
+  @keyframes glowPulse{
+    0%,100%{opacity:0.8; transform:translateX(-50%) scale(1);}
+    50%{opacity:1; transform:translateX(-50%) scale(1.05);}
+  }
+  .horizon-line{
+    position:absolute; left:0; right:0; bottom:38%; height:1px;
+    background:linear-gradient(90deg, transparent, rgba(224,171,95,0.6), transparent);
+  }
+  .hero-content{position:relative; z-index:2; max-width:1080px; margin:0 auto; padding:0 32px; text-align:left;}
+  .eyebrow{
+    font-size:0.78rem; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--amber-soft); margin-bottom:24px; display:block;
+  }
+  .hero h1{
+    font-size:clamp(2.4rem, 5.6vw, 4.2rem);
+    line-height:1.1; max-width:16ch; margin-bottom:20px;
+  }
+  .hero .name{
+    font-size:1rem; letter-spacing:0.04em; color:var(--text-muted-dark);
+    margin-bottom:36px; text-transform:uppercase;
+  }
+  .hero p.sub{font-size:1.05rem; max-width:40ch; color:var(--text-muted-dark); margin-bottom:40px;}
+  .btn{
+    display:inline-flex; align-items:center; gap:10px; padding:15px 28px;
+    border-radius:2px; font-size:0.9rem; font-weight:500; cursor:pointer;
+    border:1px solid transparent; transition:all 0.25s ease;
+  }
+  .btn-primary{background:var(--amber); color:#211d2e;}
+  .btn-primary:hover, .btn-primary:focus-visible{background:var(--amber-soft); transform:translateY(-1px);}
+  .btn-ghost{border-color:rgba(243,237,224,0.35); color:var(--text-on-dark);}
+  .btn-ghost:hover, .btn-ghost:focus-visible{border-color:rgba(243,237,224,0.8);}
+  .hero-ctas{display:flex; gap:16px; flex-wrap:wrap;}
+  .scroll-cue{
+    position:absolute; bottom:36px; left:32px; font-size:0.72rem; letter-spacing:0.1em;
+    text-transform:uppercase; color:var(--text-muted-dark); display:flex; align-items:center; gap:10px;
+  }
+  .scroll-cue::after{content:''; width:22px; height:1px; background:var(--text-muted-dark); animation:cueMove 2s ease-in-out infinite;}
+  @keyframes cueMove{0%,100%{width:22px;} 50%{width:34px;}}
+
+  /* ---------- SECTION SHARED ---------- */
+  section{padding:120px 0; position:relative;}
+  .section-mid{background:var(--paper-mid);}
+  .eyebrow-light{
+    font-size:0.78rem; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--sage); margin-bottom:18px; display:block;
+  }
+  h2{font-size:clamp(1.9rem, 3.6vw, 2.7rem); margin-bottom:28px; max-width:20ch;}
+
+  /* ---------- ABOUT ---------- */
+  .about{display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start;}
+  .about p{color:var(--text-muted-light); font-size:1.02rem; max-width:48ch; margin-bottom:18px;}
+  .about .lead{
+    font-family:'Fraunces',serif; font-style:italic; font-size:1.4rem;
+    color:var(--text-on-light); max-width:22ch; line-height:1.4;
+  }
+  .signature{
+    margin-top:28px; font-family:'Fraunces',serif; font-style:italic;
+    font-size:1.1rem; color:var(--text-on-light);
+  }
+  @media (max-width:800px){ .about{grid-template-columns:1fr; gap:32px;} }
+
+  /* ---------- SESSION / POLICY ---------- */
+  .policy-grid{
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:1px;
+    background:rgba(36,31,26,0.12); margin-top:56px; border:1px solid rgba(36,31,26,0.12);
+  }
+  .policy-card{background:var(--paper-dawn); padding:44px 40px;}
+  .policy-card.featured{background:var(--ink-dusk); color:var(--text-on-dark);}
+  .policy-card.featured p{color:var(--text-muted-dark);}
+  .policy-card .offer-name{font-family:'Fraunces',serif; font-style:italic; font-size:1.3rem; margin-bottom:6px;}
+  .policy-card .offer-price{font-size:0.85rem; color:var(--amber); margin-bottom:20px; letter-spacing:0.02em;}
+  .policy-card p{color:var(--text-muted-light); font-size:0.95rem; margin-bottom:16px;}
+  .policy-card .btn{margin-top:8px;}
+  @media (max-width:800px){ .policy-grid{grid-template-columns:1fr;} }
+
+  /* ---------- PRIVACY ---------- */
+  .privacy{background:var(--section-mid);}
+  .privacy .container{max-width:760px;}
+  .privacy p{color:var(--text-muted-light); font-size:0.98rem;}
+
+  /* ---------- INSTAGRAM ---------- */
+  .instagram{
+    text-align:center;
+    padding:100px 0 110px;
+    background:var(--ink-dusk);
+    color:var(--text-on-dark);
+  }
+  .instagram .eyebrow-light{color:var(--amber-soft);}
+  .instagram img{
+    width:220px;
+    height:auto;
+    margin:32px auto 20px;
+    border-radius:12px;
+    display:block;
+  }
+  .instagram .handle{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-size:1.1rem;
+    color:var(--amber-soft);
+  }
+
+  /* ---------- GUIDELINES ---------- */
+  .guidelines-list{
+    list-style:none;
+    margin-top:44px;
+    max-width:680px;
+    border-top:1px solid rgba(36,31,26,0.12);
+  }
+  .guidelines-list li{
+    position:relative;
+    padding:22px 0 22px 28px;
+    border-bottom:1px solid rgba(36,31,26,0.12);
+    color:var(--text-muted-light);
+    font-size:0.98rem;
+  }
+  .guidelines-list li::before{
+    content:'—';
+    position:absolute;
+    left:0;
+    color:var(--amber);
+  }
+  .guidelines-list li.crisis{
+    color:var(--text-on-light);
+    font-weight:500;
+  }
+  .guidelines-list li.crisis::before{color:var(--clay);}
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testimonials{background:var(--ink-dusk-2); color:var(--text-on-dark);}
+  .testimonials .eyebrow-light{color:var(--amber-soft);}
+  .quote-grid{display:grid; grid-template-columns:1fr; gap:40px; margin-top:56px; max-width:640px;}
+  blockquote{font-family:'Fraunces',serif; font-size:1.15rem; line-height:1.6; font-style:italic; margin-bottom:20px;}
+  .quote-author{font-size:0.82rem; color:var(--text-muted-dark); font-style:normal;}
+
+  /* ---------- BOOK READINGS ---------- */
+  .readings{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;}
+  .readings p{color:var(--text-muted-light); font-size:1rem; max-width:44ch; margin-bottom:16px;}
+  .readings-card{
+    background:var(--paper-mid); border:1px solid rgba(36,31,26,0.12);
+    padding:40px; text-align:center;
+  }
+  .readings-card .day{
+    font-family:'Fraunces',serif; font-style:italic; font-size:2rem; color:var(--clay); margin-bottom:8px;
+  }
+  .readings-card .time-tba{
+    font-size:0.85rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted-light);
+  }
+  @media (max-width:800px){ .readings{grid-template-columns:1fr; gap:32px;} }
+
+  /* ---------- CTA / CONTACT ---------- */
+  .cta{text-align:center; padding:140px 0;}
+  .cta h2{max-width:18ch; margin:0 auto 20px;}
+  .cta p{color:var(--text-muted-light); max-width:42ch; margin:0 auto 40px;}
+  .cta .btn-primary{padding:17px 36px;}
+
+  footer{background:var(--ink-dusk); color:var(--text-muted-dark); padding:56px 0 32px; font-size:0.85rem;}
+  .footer-top{
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:24px;
+    padding-bottom:32px; border-bottom:1px solid rgba(243,237,224,0.12); margin-bottom:24px;
+  }
+  .footer-word{font-family:'Fraunces',serif; font-style:italic; color:var(--text-on-dark); font-size:1.1rem;}
+  .footer-links{display:flex; gap:24px; list-style:none;}
+  .footer-links a:hover{color:var(--amber-soft);}
+  .footer-bottom{display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; opacity:0.7;}
+
+  ::selection{background:var(--amber); color:#211d2e;}
+  :focus-visible{outline:2px solid var(--amber); outline-offset:3px;}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="wordmark">Shashanka Payeng</a>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#session">Sessions</a></li>
+    <li><a href="#guidelines">Good to Know</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#readings">Book Readings</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <div class="horizon-glow" aria-hidden="true"></div>
+  <div class="horizon-line" aria-hidden="true"></div>
+  <div class="hero-content">
+    <span class="eyebrow">Transformational Life Coach</span>
+    <h1>There is someone who would love to <em>listen…</em></h1>
+    <div class="name">Shashanka Payeng</div>
+    <p class="sub">A 40-minute session with someone who will ask the right questions, listen with sensitivity, and offer honest, helpful insight. With a life coach, you are not alone.</p>
+    <div class="hero-ctas">
+      <a href="#session" class="btn btn-primary">Book a session</a>
+      <a href="#about" class="btn btn-ghost">Meet Shashanka Payeng</a>
+    </div>
+  </div>
+  <span class="scroll-cue">Scroll</span>
+</header>
+
+<section id="about">
+  <div class="container about">
+    <div>
+      <span class="eyebrow-light">About Me</span>
+      <h2>Allow me to introduce myself.</h2>
+      <p>You may call me Shashanka Payeng. Because I love people, I became a life coach, and it's my passion to help others in times of distress. I live in a community where high value is placed on family, loyalty, kindness, and respect for others.</p>
+      <p>During my college years, I learned that people-watching was a great education in and of itself. It helped me understand that the world presents us with a wide variety of hiccups, for lack of a better term. I too have had my share of ups and downs. But I was fortunate enough to have a very wise and special person in my life to help me get through those times — it became both my inspiration and empowerment to transition into the role of life coach.</p>
+      <p>As such, I have the presence of mind to ask the right questions, to listen to problems with sensitivity, and to provide my clients with honest, helpful insight. My 40-minute session isn't guaranteed to cure your problems, but rather to arm you with some tools and thoughts to work through them for a successful outcome.</p>
+    </div>
+    <div>
+      <p class="lead">"With a life coach, you are not alone. I am available to listen."</p>
+      <div class="signature">— Shashanka Payeng</div>
+    </div>
+  </div>
+</section>
+
+<section id="session" class="section-mid">
+  <div class="container">
+    <span class="eyebrow-light">Working Together</span>
+    <h2>Book a session.</h2>
+    <div class="policy-grid">
+      <div class="policy-card featured">
+        <div class="offer-name">One-on-One Session</div>
+        <div class="offer-price">$30 (USD) · 40 minutes</div>
+        <p>A focused conversation where I listen with sensitivity, ask the right questions, and offer honest, helpful insight to help you work through what you're facing.</p>
+        <p style="font-size:0.85rem; color:var(--amber-soft); margin-top:-8px;">Payment is required before your session begins.</p>
+        <a href="#" class="btn btn-primary">Payment link — add your link here</a>
+      </div>
+      <div class="policy-card">
+        <div class="offer-name">No Refund Policy</div>
+        <p>Sadly, I have a no refund policy. My primary goal is to coach you, but I must live as well. Your $30 (US) donation per session helps me feed my family and take care of their basic needs. By clicking the payment link, you are agreeing to the terms and conditions set herein.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="privacy">
+  <div class="container">
+    <span class="eyebrow-light">Privacy Statement</span>
+    <h2>Your confidentiality matters.</h2>
+    <p style="color:var(--text-muted-light); max-width:60ch; font-size:1rem;">Confidentiality is a primary concern to me. All information, whether written or verbal, remains strictly confidential and does not leave the client and coaching portal.</p>
+  </div>
+</section>
+
+<section id="guidelines" class="section-mid">
+  <div class="container">
+    <span class="eyebrow-light">Good to Know</span>
+    <h2>A few things before we begin.</h2>
+    <ul class="guidelines-list">
+      <li>Sessions run 40 minutes. Out of respect for everyone's time, we keep to the schedule.</li>
+      <li>Payment is due before your session begins.</li>
+      <li>Coaching isn't therapy. I can't promise a specific outcome — only my full attention, honest insight, and practical tools to help you move forward.</li>
+      <li>Our sessions are about you and what you're facing. I keep the focus there rather than on political or religious debate.</li>
+      <li>I do my best to support every client, but coaching isn't the right fit for everyone or every situation. If that's the case, I'll say so and point you toward the right kind of help.</li>
+      <li class="crisis">If you're having thoughts of suicide or self-harm, please contact a licensed crisis service right away — in the US, call or text 988 (Suicide &amp; Crisis Lifeline), or call 911 in an emergency. Life coaching is not a substitute for mental health or medical crisis care.</li>
+      <li>At the end of each session, I'll ask for a little feedback. It helps me keep improving — and helps others find their way here too.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="reviews" class="testimonials">
+  <div class="container">
+    <span class="eyebrow-light">Recent Reviews</span>
+    <h2>Please read reviews. I look forward to speaking with you soon.</h2>
+    <div class="quote-grid">
+      <div>
+        <blockquote>"I recently had the need to speak to a life coach. I was lost somewhere inside myself and the depression grew worse every day. I researched and found Shashanka Payeng online. He made the session totally comfortable. He listened and asked me questions and then we had a heart warming conversation. He gave me insight that really hit home. By the time we were finished, I felt like I could take on the world again."</blockquote>
+        <div class="quote-author">— Client review</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="readings" class="section-mid">
+  <div class="container readings">
+    <div>
+      <span class="eyebrow-light">Live Book Readings</span>
+      <h2>Join me for a live reading.</h2>
+      <p>You are cordially invited to join my live online book reading sessions. They take place on Sundays. Times will be announced.</p>
+    </div>
+    <div class="readings-card">
+      <div class="day">Sundays</div>
+      <div class="time-tba">Time to be announced</div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="cta">
+  <div class="container">
+    <span class="eyebrow-light">Ready when you are</span>
+    <h2>There is someone who would love to listen.</h2>
+    <p>Reach out to book your 40-minute session, or ask any questions before you begin.</p>
+    <a href="mailto:hello@shashankapayeng.com" class="btn btn-primary">hello@shashankapayeng.com</a>
+  </div>
+</section>
+
+<section class="instagram">
+  <div class="container">
+    <span class="eyebrow-light">Follow Along</span>
+    <h2>Let's connect on Instagram.</h2>
+    <a href="https://www.instagram.com/tadashi.02025?igsh=cTByaDVieWhzZ2xo" target="_blank" rel="noopener">
+      <img src="instagram-qr.png" alt="Instagram QR code for @shashanka.payeng">
+    </a>
+    <div class="handle">@tadashi.02025</div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <span class="footer-word">Shashanka Payeng</span>
+      <ul class="footer-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#session">Sessions</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#readings">Book Readings</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Shashanka Payeng. All rights reserved.</span>
+      <span>Sessions worldwide via video</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
